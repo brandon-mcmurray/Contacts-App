@@ -59,17 +59,17 @@
                     </view>
                     <connections>
                         <outlet property="contactTableView" destination="qqi-Wd-gqX" id="NZd-Yr-o7G"/>
-                        <segue destination="sXn-eA-xUu" kind="show" id="gaZ-HA-EH7"/>
+                        <segue destination="sXn-eA-xUu" kind="show" identifier="Segue" id="gaZ-HA-EH7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-816" y="103"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="HGT-eu-frU">
             <objects>
-                <viewController id="sXn-eA-xUu" sceneMemberID="viewController">
+                <viewController id="sXn-eA-xUu" customClass="DetailViewController" customModule="ContactsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rqs-9K-2gV"/>
                         <viewControllerLayoutGuide type="bottom" id="8YO-q6-Pc4"/>
@@ -98,6 +98,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hp5-Lh-iDf">
+                                <rect key="frame" x="142" y="440" width="46" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="sXn-eA-xUu" eventType="touchUpInside" id="NNL-mW-nZt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -124,10 +131,16 @@
                             <constraint firstItem="Tbc-gc-bfa" firstAttribute="width" secondItem="tkt-yF-JIZ" secondAttribute="width" id="ycX-Qu-TbF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailAddress" destination="hfW-N3-2Rh" id="vBt-eG-LM2"/>
+                        <outlet property="firstName" destination="tkt-yF-JIZ" id="vIx-6S-OI6"/>
+                        <outlet property="lastName" destination="Tbc-gc-bfa" id="7IY-wg-563"/>
+                        <outlet property="phoneNumber" destination="7Tl-xE-wFU" id="8md-P3-tRP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7J-uc-Ha6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5" y="111"/>
+            <point key="canvasLocation" x="19" y="103"/>
         </scene>
     </scenes>
 </document>

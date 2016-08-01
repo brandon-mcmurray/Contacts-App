@@ -13,10 +13,10 @@ class Contact {
     var firstName : String
     var lastName  : String
     var emailAddress : String
-    var phoneNumber : Int
+    var phoneNumber : String
     let contactId: String = NSUUID().UUIDString
     
-    init( firstName:String, lastName:String, emailAddress: String, phoneNumber: Int ){
+    init( firstName:String, lastName:String, emailAddress: String, phoneNumber: String ){
         
         self.firstName = firstName
         self.lastName = lastName
