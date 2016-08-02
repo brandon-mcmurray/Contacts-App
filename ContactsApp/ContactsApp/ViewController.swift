@@ -8,19 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     @IBOutlet weak var contactTableView: UITableView!
     
    var people: [Contact]?
-//    var people = [Contact]()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contactTableView.dataSource = self
         
+        people = DataManager.sharedManager.getContact()
+        contactTableView.dataSource = self
+        contactTableView.delegate = self
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(onContactChanged), name: "contact_changed", object: nil)
+        
+        
+        
+    }
+    
+    
+    func onContactChanged(noticiacation: NSNotification) {
+        
+        contactTableView.reloadData()
         
     }
 
@@ -60,6 +72,33 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
     return people!.count
     
 }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+     
+        performSegueWithIdentifier("Segue", sender: indexPath)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        if segue.identifier == "Segue" {
+           
+        
+            let detailVC = segue.destinationViewController as? DetailViewController
+            
+         
+            
+            if let array = people, let indexPath = sender {
+                   detailVC?.people = array[indexPath.row]
+                
+            }
+            
+            
+            
+        }
+    }
 
 
 }

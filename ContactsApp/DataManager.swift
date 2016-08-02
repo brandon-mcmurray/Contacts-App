@@ -33,5 +33,27 @@ class DataManager {
         return people
     }
 
+    func  updateContact( people: Contact) -> Bool {
+        
+        for p in self.people {
+            
+            if p.contactId == people.contactId {
+                
+                p.firstName = people.firstName
+                
+                p.lastName = people.lastName
+                
+                p.emailAddress = people.emailAddress
+                
+                p.phoneNumber = people.phoneNumber
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("contact_changed", object: self , userInfo: ["People" : p])
+                
+                return true
+            }
+        }
+        
+        return false
+    }
     
 }

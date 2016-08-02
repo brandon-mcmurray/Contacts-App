@@ -22,7 +22,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         firstName.text = people?.firstName
         lastName.text = people?.lastName
         phoneNumber.text = people?.phoneNumber
@@ -34,6 +33,16 @@ class DetailViewController: UIViewController {
     @IBAction func saveButton(sender: AnyObject) {
         
         
+        if let person = people {
+            
+            person.firstName = firstName.text!
+            person.lastName = lastName.text!
+            person.emailAddress = emailAddress.text!
+            person.phoneNumber = phoneNumber.text!
+            
+            
+            DataManager.sharedManager.updateContact(person)
+        }
         
         
     }
