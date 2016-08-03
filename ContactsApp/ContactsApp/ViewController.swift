@@ -13,19 +13,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var contactTableView: UITableView!
     
-   var people: [Contact]?
+  // var people: [Contact]?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        people = DataManager.sharedManager.getContact()
+        DataManager.sharedManager.getContact()
+    
         contactTableView.dataSource = self
         contactTableView.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(onContactChanged), name: "contact_changed", object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self , selector: #selector(onNewContactAdded), name: "contact_added", object: nil)
         
+    }
+    
+    func onNewContactAdded(notification: NSNotification) {
+        
+        contactTableView.reloadData()
         
     }
     
@@ -46,7 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("contactCell", forIndexPath: indexPath) as? ContactTableViewCell{
             
-            if let myContact : Contact = people![indexPath.row] {
+            if let myContact : Contact = DataManager.sharedManager.people[indexPath.row] {
                 
                 let contactName : String = myContact.firstName + " " + myContact.lastName
                 
@@ -69,7 +76,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
 func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
                     
-    return people!.count
+    return DataManager.sharedManager.people.count
     
 }
     
@@ -90,8 +97,8 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
             
          
             
-            if let array = people, let indexPath = sender {
-                   detailVC?.people = array[indexPath.row]
+            if let indexPath = sender {
+                   detailVC?.people = DataManager.sharedManager.people[indexPath.row]
                 
             }
             
@@ -100,5 +107,16 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
         }
     }
 
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            
+        DataManager.sharedManager.people.removeAtIndex(indexPath.row)
+            
+            contactTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+        
+        
+    }
 
 }

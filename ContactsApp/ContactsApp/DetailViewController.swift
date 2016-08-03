@@ -47,6 +47,16 @@ class DetailViewController: UIViewController {
         
     }
     
+    @IBAction func addButtonTouched(sender: UIButton) {
+        
+        let newContact = Contact(firstName: self.firstName.text!, lastName: self.lastName.text!, emailAddress: self.emailAddress.text!, phoneNumber: self.phoneNumber.text!)
+    
+        
+        DataManager.sharedManager.addContact(newContact)
+        
+    }
+    
+        
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
