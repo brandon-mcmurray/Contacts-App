@@ -26,7 +26,6 @@ class DataManager {
         contact = Contact(firstName:"Kayla", lastName: "McMurray", emailAddress:"Kayla@McMurray.com", phoneNumber: "40484907754")
         people.append(contact)
         
-        
         contact = Contact(firstName:"Tremayne", lastName: "McMurray", emailAddress:"McMurray@Tremayne", phoneNumber: "4049862341")
         people.append(contact)
     
@@ -54,6 +53,13 @@ class DataManager {
         }
         
         return false
+    }
+    
+    func addContact(contact : Contact) {
+        
+        
+        self.people.append(contact)
+        NSNotificationCenter.defaultCenter().postNotificationName("contact_added", object: nil, userInfo: ["Contact" : contact])
     }
     
 }

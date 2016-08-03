@@ -106,6 +106,13 @@
                                     <action selector="saveButton:" destination="sXn-eA-xUu" eventType="touchUpInside" id="NNL-mW-nZt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFH-YQ-idW">
+                                <rect key="frame" x="285" y="274" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonTouched:" destination="sXn-eA-xUu" eventType="touchUpInside" id="vlN-Lu-W3t"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
