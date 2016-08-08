@@ -28,6 +28,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         NSNotificationCenter.defaultCenter().addObserver(self , selector: #selector(onNewContactAdded), name: "contact_added", object: nil)
         
+        if let contacts = DataManager.sharedManager.loadContact() {
+            
+             DataManager.sharedManager.people = contacts
+        }
+        
+        
+        
     }
     
     func onNewContactAdded(notification: NSNotification) {
@@ -55,7 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             if let myContact : Contact = DataManager.sharedManager.people[indexPath.row] {
                 
-                let contactName : String = myContact.firstName + " " + myContact.lastName
+                let contactName : String = myContact.firstName! + " " + myContact.lastName!
                 
                 cell.contactLabel.text = contactName
                 }

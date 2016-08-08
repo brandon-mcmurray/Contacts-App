@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UITableViewController {
     
        var people: Contact?
     
@@ -33,6 +33,19 @@ class DetailViewController: UIViewController {
     @IBAction func saveButton(sender: AnyObject) {
         
         
+        if let sourceViewController = sender.sourceViewController as? DetailViewController, update = sourceViewController.people{
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                
+                DataManager.sharedManager.updateContact(people!)
+                 tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None )
+                
+                
+            }
+            
+        }
+       
+
+        
         if let person = people {
             
             person.firstName = firstName.text!
@@ -41,8 +54,7 @@ class DetailViewController: UIViewController {
             person.phoneNumber = phoneNumber.text!
             
             
-            DataManager.sharedManager.updateContact(person)
-        }
+            DataManager.sharedManager.updateContact(person)        }
         
         
     }

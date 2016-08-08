@@ -59,7 +59,20 @@ class DataManager {
         
         
         self.people.append(contact)
+        
         NSNotificationCenter.defaultCenter().postNotificationName("contact_added", object: nil, userInfo: ["Contact" : contact])
+    }
+    
+    
+    func saveContact() {
+        
+        let sucessfulSave = NSKeyedArchiver.archiveRootObject(people, toFile: Contact.ArchivalURL.path!)
+        
+    }
+    
+    func loadContact () -> [Contact]? {
+        
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Contact.ArchivalURL.path!) as? [Contact]
     }
     
 }

@@ -75,7 +75,7 @@
                         <viewControllerLayoutGuide type="top" id="rqs-9K-2gV"/>
                         <viewControllerLayoutGuide type="bottom" id="8YO-q6-Pc4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ik5-ag-XhX">
+                    <view key="view" contentMode="scaleToFill" id="Ik5-ag-XhX" customClass="UITableView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
