@@ -45,6 +45,7 @@ class DataManager {
                 p.emailAddress = people.emailAddress
                 
                 p.phoneNumber = people.phoneNumber
+    
                 
                 NSNotificationCenter.defaultCenter().postNotificationName("contact_changed", object: self , userInfo: ["People" : p])
                 
@@ -60,13 +61,22 @@ class DataManager {
         
         self.people.append(contact)
         
+        saveContact()
+       
         NSNotificationCenter.defaultCenter().postNotificationName("contact_added", object: nil, userInfo: ["Contact" : contact])
+        
+        
     }
     
     
     func saveContact() {
         
-        let sucessfulSave = NSKeyedArchiver.archiveRootObject(people, toFile: Contact.ArchivalURL.path!)
+        if NSKeyedArchiver.archiveRootObject(people, toFile: Contact.ArchivalURL.path!){
+            
+            print("Succesfully saved")
+        }else {
+            print("Did not save")
+        }
         
     }
     

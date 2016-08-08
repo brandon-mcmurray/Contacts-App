@@ -8,7 +8,15 @@
 
 import Foundation
 
-class Contact : NSObject, NSCoding{
+class Contact : NSObject, NSCoding {
+    
+    enum zodiac: String {
+        
+        
+        case Aries,Taurus,Gemini,Cancer,Leo,Virgo,Libra,Scorpio,Sagittarius,Pisces,Aquarius,Capricorn
+    }
+    
+    
   
     var firstName : String?
     var lastName  : String?
@@ -16,7 +24,7 @@ class Contact : NSObject, NSCoding{
     var phoneNumber : String?
     let contactId: String = NSUUID().UUIDString
     
-    init( firstName:String, lastName:String, emailAddress: String, phoneNumber: String ){
+    init( firstName:String, lastName:String, emailAddress: String, phoneNumber: String){
         
         self.firstName = firstName
         self.lastName = lastName
@@ -65,7 +73,7 @@ class Contact : NSObject, NSCoding{
         
         self.emailAddress = aDecoder.decodeObjectForKey("EmailAddress") as? String
         
-        self.phoneNumber = aDecoder.decodeObjectForKey("PhoneNUmber") as? String
+        self.phoneNumber = aDecoder.decodeObjectForKey("PhoneNumber") as? String
         
     }
     
