@@ -10,8 +10,7 @@ import Foundation
 
 class Contact : NSObject, NSCoding {
     
-    enum zodiac: String {
-        
+    enum Zodiac : Int{
         
         case Aries,Taurus,Gemini,Cancer,Leo,Virgo,Libra,Scorpio,Sagittarius,Pisces,Aquarius,Capricorn
     }
@@ -22,15 +21,19 @@ class Contact : NSObject, NSCoding {
     var lastName  : String?
     var emailAddress : String?
     var phoneNumber : String?
+    var zodiac: Zodiac?
+    var birthDate: NSDate?
     let contactId: String = NSUUID().UUIDString
     
-    init( firstName:String, lastName:String, emailAddress: String, phoneNumber: String){
-        
-        self.firstName = firstName
-        self.lastName = lastName
-        self.emailAddress = emailAddress
-        self.phoneNumber = phoneNumber
-    }
+//    init( firstName:String, lastName:String, emailAddress: String, phoneNumber: String, zodiac: Zodiac, birthDate: NSDate) {
+//        
+//        self.firstName = firstName
+//        self.lastName = lastName
+//        self.emailAddress = emailAddress
+//        self.phoneNumber = phoneNumber
+//        self.zodiac = zodiac
+//        self.birthDate = birthDate
+//    }
     
     
     override init() {
@@ -63,6 +66,17 @@ class Contact : NSObject, NSCoding {
 
         
     }
+    
+    
+    if let zod = self.zodiac , let z = zod.rawValue as? Int {
+        aCoder.encodeInteger(z, forKey: "ZodiacSign")
+    }
+  
+    
+    if let bd = self.birthDate {
+        
+        aCoder.encodeObject(bd, forKey: "BirthDate")
+    }
         
     }
     @objc required init?(coder aDecoder: NSCoder){
@@ -74,6 +88,16 @@ class Contact : NSObject, NSCoding {
         self.emailAddress = aDecoder.decodeObjectForKey("EmailAddress") as? String
         
         self.phoneNumber = aDecoder.decodeObjectForKey("PhoneNumber") as? String
+        
+        self.birthDate = aDecoder.decodeObjectForKey("BirthDate") as? NSDate
+        
+        if let zd = aDecoder.decodeObjectForKey("ZodiacSign") as? Int {
+            
+            self.zodiac = Zodiac(rawValue: zd)
+            
+        }
+        
+        
         
     }
     

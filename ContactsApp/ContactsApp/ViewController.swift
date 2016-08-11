@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var contactTableView: UITableView!
     
-  // var people: [Contact]?
+   //var people: [Contact]?
 
     
     override func viewDidLoad() {
@@ -60,12 +60,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("contactCell", forIndexPath: indexPath) as? ContactTableViewCell{
             
-            if let myContact : Contact = DataManager.sharedManager.people[indexPath.row] {
                 
-                let contactName : String = myContact.firstName! + " " + myContact.lastName!
-                
-                cell.contactLabel.text = contactName
-                }
+                let contactName = DataManager.sharedManager.people[indexPath.row]
+                cell.contactLabel.text = contactName.firstName! + " " + contactName.lastName!
+
+            
             
                 return cell
             }
@@ -125,5 +124,11 @@ func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> In
         
         
     }
+    
+    @IBAction func contactsSynced(sender: AnyObject){
+        
+        DataManager.sharedManager.syncContacts()
+        
+    }
 
-}
+   }

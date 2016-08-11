@@ -57,7 +57,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="qqi-Wd-gqX" secondAttribute="trailing" id="ptr-AW-ndJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="oXA-TW-Vm0"/>
+                    <navigationItem key="navigationItem" id="oXA-TW-Vm0">
+                        <barButtonItem key="leftBarButtonItem" title="Sync" id="ans-rc-5Mq">
+                            <connections>
+                                <action selector="contactsSynced:" destination="BYZ-38-t0r" id="yg8-kA-7Io"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="contactTableView" destination="qqi-Wd-gqX" id="NZd-Yr-o7G"/>
                         <segue destination="sXn-eA-xUu" kind="show" identifier="Segue" id="gaZ-HA-EH7"/>
@@ -99,18 +105,42 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hp5-Lh-iDf">
-                                <rect key="frame" x="283" y="236" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tjk-VA-ZVY">
+                                <rect key="frame" x="20" y="326" width="244" height="142"/>
+                                <date key="date" timeIntervalSinceReferenceDate="492388065.60094798">
+                                    <!--2016-08-08 22:27:45 +0000-->
+                                </date>
                                 <connections>
-                                    <action selector="saveButton:" destination="sXn-eA-xUu" eventType="touchUpInside" id="NNL-mW-nZt"/>
+                                    <action selector="datePicked" destination="sXn-eA-xUu" eventType="valueChanged" id="Fr9-rI-Tl9"/>
                                 </connections>
-                            </button>
+                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFH-YQ-idW">
-                                <rect key="frame" x="285" y="274" width="30" height="30"/>
+                                <rect key="frame" x="127" y="504" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addButtonTouched:" destination="sXn-eA-xUu" eventType="touchUpInside" id="vlN-Lu-W3t"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zab-P3-8Oy">
+                                <rect key="frame" x="289" y="326" width="291" height="142"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPG-ia-K9E">
+                                <rect key="frame" x="26" y="247" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5g-Vu-obJ">
+                                <rect key="frame" x="26" y="276" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hp5-Lh-iDf">
+                                <rect key="frame" x="260" y="504" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="sXn-eA-xUu" eventType="touchUpInside" id="NNL-mW-nZt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -124,19 +154,26 @@
                             <constraint firstAttribute="trailingMargin" secondItem="hfW-N3-2Rh" secondAttribute="trailing" id="90q-or-Beg"/>
                             <constraint firstItem="Tbc-gc-bfa" firstAttribute="leading" secondItem="Ik5-ag-XhX" secondAttribute="leadingMargin" id="Ab0-gJ-W6e"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tbc-gc-bfa" secondAttribute="trailing" id="FUp-C8-PVc"/>
+                            <constraint firstItem="tjk-VA-ZVY" firstAttribute="top" secondItem="rqs-9K-2gV" secondAttribute="bottom" constant="269" id="Gai-v5-uFd"/>
                             <constraint firstItem="hfW-N3-2Rh" firstAttribute="leading" secondItem="Ik5-ag-XhX" secondAttribute="leadingMargin" id="Jch-Px-TkM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tkt-yF-JIZ" secondAttribute="trailing" id="Orz-2n-OY1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tjk-VA-ZVY" secondAttribute="trailing" constant="260" id="PNj-f6-vsH"/>
                             <constraint firstItem="tkt-yF-JIZ" firstAttribute="leading" secondItem="Ik5-ag-XhX" secondAttribute="leadingMargin" id="VFT-0c-SI7"/>
+                            <constraint firstItem="8YO-q6-Pc4" firstAttribute="top" secondItem="tjk-VA-ZVY" secondAttribute="bottom" constant="51" id="cXV-BY-glc"/>
                             <constraint firstItem="Hp5-Lh-iDf" firstAttribute="centerX" secondItem="Ik5-ag-XhX" secondAttribute="centerX" id="ekK-yu-wj0"/>
                             <constraint firstItem="hfW-N3-2Rh" firstAttribute="top" secondItem="7Tl-xE-wFU" secondAttribute="bottom" constant="8" symbolic="YES" id="qMY-kd-Aba"/>
                             <constraint firstItem="Tbc-gc-bfa" firstAttribute="top" secondItem="tkt-yF-JIZ" secondAttribute="bottom" constant="8" symbolic="YES" id="qyh-30-yxe"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="birthDate" destination="U5g-Vu-obJ" id="XkP-aE-80D"/>
+                        <outlet property="datePicker" destination="tjk-VA-ZVY" id="ekV-BX-x4N"/>
                         <outlet property="emailAddress" destination="hfW-N3-2Rh" id="vBt-eG-LM2"/>
                         <outlet property="firstName" destination="tkt-yF-JIZ" id="vIx-6S-OI6"/>
                         <outlet property="lastName" destination="Tbc-gc-bfa" id="7IY-wg-563"/>
                         <outlet property="phoneNumber" destination="7Tl-xE-wFU" id="8md-P3-tRP"/>
+                        <outlet property="zodiac" destination="hPG-ia-K9E" id="QIg-jq-z7l"/>
+                        <outlet property="zodiacPicker" destination="Zab-P3-8Oy" id="U9X-kn-0BE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7J-uc-Ha6" userLabel="First Responder" sceneMemberID="firstResponder"/>
