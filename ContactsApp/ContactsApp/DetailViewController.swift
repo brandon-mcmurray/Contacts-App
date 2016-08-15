@@ -91,12 +91,6 @@ class DetailViewController: UITableViewController, UIPickerViewDataSource, UIPic
     }
     
     
-    
-    
-
-    
-    
-    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
