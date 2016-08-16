@@ -19,7 +19,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DataManager.sharedManager.getContact()
+       
+        
+        DataManager.sharedManager.syncContacts()
     
         contactTableView.dataSource = self
         contactTableView.delegate = self
@@ -59,12 +61,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("contactCell", forIndexPath: indexPath) as? ContactTableViewCell{
-            
-                
-                let contactName = DataManager.sharedManager.people[indexPath.row]
-                cell.contactLabel.text = contactName.firstName! + " " + contactName.lastName!
 
             
+            
+             let contactName = DataManager.sharedManager.people[indexPath.row]
+            
+            if let fname = contactName.firstName, let lname = contactName.lastName {
+                
+                cell.contactLabel!.text = fname + " " + lname
+                
+            }
+            
+            
+
             
                 return cell
             }

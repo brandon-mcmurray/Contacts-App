@@ -14,6 +14,7 @@
 		E69EDE141D3EED41000AA131 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E69EDE131D3EED41000AA131 /* Assets.xcassets */; };
 		E69EDE171D3EED41000AA131 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E69EDE151D3EED41000AA131 /* LaunchScreen.storyboard */; };
 		E69EDE1F1D3EEDE6000AA131 /* ContactClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69EDE1E1D3EEDE6000AA131 /* ContactClass.swift */; };
+		E6D7078D1D62A491008782A0 /* Contact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6D7078B1D62A491008782A0 /* Contact.xcdatamodeld */; };
 		E6EBC1A91D4E9A0B00665AF6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EBC1A81D4E9A0B00665AF6 /* DataManager.swift */; };
 		E6EBC1AB1D4E9A3500665AF6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EBC1AA1D4E9A3500665AF6 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		E69EDE161D3EED41000AA131 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E69EDE181D3EED41000AA131 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E69EDE1E1D3EEDE6000AA131 /* ContactClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactClass.swift; sourceTree = "<group>"; };
+		E6D7078C1D62A491008782A0 /* Contact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contact.xcdatamodel; sourceTree = "<group>"; };
 		E6EBC1A81D4E9A0B00665AF6 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = ../DataManager.swift; sourceTree = "<group>"; };
 		E6EBC1AA1D4E9A3500665AF6 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +71,7 @@
 				E69EDE1E1D3EEDE6000AA131 /* ContactClass.swift */,
 				E69EDE101D3EED41000AA131 /* Main.storyboard */,
 				E6EBC1A81D4E9A0B00665AF6 /* DataManager.swift */,
+				E6D7078B1D62A491008782A0 /* Contact.xcdatamodeld */,
 				E69EDE131D3EED41000AA131 /* Assets.xcassets */,
 				E69EDE151D3EED41000AA131 /* LaunchScreen.storyboard */,
 				E69EDE181D3EED41000AA131 /* Info.plist */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E66770EE1D43EF5600DEEF16 /* ContactTableViewCell.swift in Sources */,
+				E6D7078D1D62A491008782A0 /* Contact.xcdatamodeld in Sources */,
 				E6EBC1A91D4E9A0B00665AF6 /* DataManager.swift in Sources */,
 				E69EDE0F1D3EED41000AA131 /* ViewController.swift in Sources */,
 				E6EBC1AB1D4E9A3500665AF6 /* DetailViewController.swift in Sources */,
@@ -307,6 +311,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E6D7078B1D62A491008782A0 /* Contact.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E6D7078C1D62A491008782A0 /* Contact.xcdatamodel */,
+			);
+			currentVersion = E6D7078C1D62A491008782A0 /* Contact.xcdatamodel */;
+			path = Contact.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E69EDE011D3EED41000AA131 /* Project object */;
 }

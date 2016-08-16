@@ -25,13 +25,13 @@ class Contact : NSObject, NSCoding {
     var birthDate: NSDate?
     let contactId: String = NSUUID().UUIDString
     
-//    init( firstName:String, lastName:String, emailAddress: String, phoneNumber: String, zodiac: Zodiac, birthDate: NSDate) {
-//        
-//        self.firstName = firstName
-//        self.lastName = lastName
-//        self.emailAddress = emailAddress
-//        self.phoneNumber = phoneNumber
-//        self.zodiac = zodiac
+//  init( firstName:String, lastName:String, emailAddress: String, phoneNumber: String, zodiac: Zodiac, birthDate: NSDate) {
+//    
+//       self.firstName = firstName
+//      self.lastName = lastName
+//      self.emailAddress = emailAddress
+//       self.phoneNumber = phoneNumber
+//       self.zodiac = zodiac
 //        self.birthDate = birthDate
 //    }
     
